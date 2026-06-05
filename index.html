@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PlanJeToets</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <p class="eyebrow">PlanJeToets</p>
+        <h1>Plan je toetsen, leer rustiger.</h1>
+      </div>
+      <button class="icon-button" id="resetData" title="Alles wissen" aria-label="Alles wissen">↻</button>
+    </header>
+
+    <main class="app-shell">
+      <section class="panel planner-panel">
+        <div class="section-title">
+          <h2>Nieuwe toets</h2>
+          <p>Voeg je toets toe en verdeel daarna je leerwerk.</p>
+        </div>
+
+        <form id="testForm" class="form-grid">
+          <label>
+            Vak
+            <input id="subject" name="subject" required placeholder="Bijv. wiskunde">
+          </label>
+          <label>
+            Onderwerp
+            <input id="topic" name="topic" required placeholder="Bijv. hoofdstuk 4">
+          </label>
+          <label>
+            Datum toets
+            <input id="testDate" name="testDate" type="date" required>
+          </label>
+          <label>
+            Hoeveelheid leerwerk
+            <select id="workload" name="workload">
+              <option value="licht">Licht</option>
+              <option value="normaal" selected>Normaal</option>
+              <option value="veel">Veel</option>
+            </select>
+          </label>
+          <label class="wide">
+            Wat moet je leren?
+            <textarea id="notes" name="notes" rows="3" placeholder="Bijv. begrippen, formules, samenvatting maken"></textarea>
+          </label>
+          <button class="primary wide" type="submit">Toets toevoegen</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>Leerblok plannen</h2>
+          <p>Koppel leerwerk aan een dag en vink het later af.</p>
+        </div>
+
+        <form id="studyForm" class="form-grid compact">
+          <label>
+            Datum
+            <input id="studyDate" name="studyDate" type="date" required>
+          </label>
+          <label>
+            Tijd
+            <input id="studyTime" name="studyTime" type="time" required>
+          </label>
+          <label class="wide">
+            Wat ga je doen?
+            <input id="studyTask" name="studyTask" required placeholder="Bijv. biologie begrippen oefenen">
+          </label>
+          <button class="secondary wide" type="submit">Leerblok toevoegen</button>
+        </form>
+      </section>
+
+      <section class="dashboard">
+        <article class="stat">
+          <span id="testCount">0</span>
+          <p>toetsen gepland</p>
+        </article>
+        <article class="stat">
+          <span id="studyCount">0</span>
+          <p>leerblokken</p>
+        </article>
+        <article class="stat">
+          <span id="nextTest">Geen</span>
+          <p>eerstvolgende toets</p>
+        </article>
+      </section>
+
+      <section class="content-grid">
+        <div class="list-section">
+          <div class="section-title">
+            <h2>Toetsen</h2>
+            <p>Gesorteerd op datum.</p>
+          </div>
+          <div id="testsList" class="cards empty-state">Nog geen toetsen gepland.</div>
+        </div>
+
+        <div class="list-section">
+          <div class="section-title">
+            <h2>Planning</h2>
+            <p>Je leerblokken per dag.</p>
+          </div>
+          <div id="studyList" class="cards empty-state">Nog geen leerblokken gepland.</div>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
